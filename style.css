@@ -10,11 +10,13 @@ body {
     display: flex;
     height: 100vh;
     padding: 0.5rem;
+    box-sizing: border-box;
 }
 
 .sidebar {
     background-color: black;
     width: 340px;
+    min-width: 260px;
     border-radius: 1rem;
     margin-right: 0.5rem;
 }
@@ -22,6 +24,7 @@ body {
 .main_content {
     background-color: #121212;
     flex: 1;
+    min-width: 0;
     border-radius: 1rem;
     overflow: auto;
     padding: 0 1.5rem 0 1.5rem;
@@ -110,10 +113,11 @@ a {
 
 .box {
     background-color: #232323;
-    height: 8rem;
+    min-height: 8rem;
     border-radius: 0.75rem;
     margin: 0.75rem 0 1.75rem 0;
     padding: 0.75rem 1rem;
+    box-sizing: border-box;
 }
 
 .box-p1 {
@@ -135,6 +139,7 @@ a {
     margin-top: 0.5rem;
     height: 2rem;
     width: fit-content;
+    white-space: nowrap;
 }
 
 .dark-badge {
@@ -157,6 +162,11 @@ a {
     margin-left: 0.75rem;
 }
 
+.sticky-nav-icons img {
+    width: 32px;
+    height: 32px;
+}
+
 .sticky-nav-options {
     display: flex;
     justify-content: center;
@@ -167,12 +177,6 @@ a {
     margin-right: 1rem;
 }
 
-@media (max-width: 1000px) {
-    .hide {
-        display: none;
-    }
-}
-
 .card {
     background-color: #232323;
     width: 150px;
@@ -180,6 +184,7 @@ a {
     padding: 1rem;
     margin-left: 1.5rem;
     margin-top: 1rem;
+    box-sizing: border-box;
 }
 
 .cards-container {
@@ -217,6 +222,7 @@ a {
 
 .album {
     width: 30%;
+    min-width: 0;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -225,6 +231,7 @@ a {
 .album-img {
     height: 56px;
     width: 56px;
+    min-width: 56px;
     object-fit: cover;
     border-radius: 4px;
     padding-left: 0;
@@ -245,17 +252,6 @@ a {
     color: #b3b3b3;
     font-size: 0.75rem;
     margin: 0;
-}
-
-.album i {
-    color: white;
-    font-size: 1rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
-}
-
-.album i:hover {
-    color: #b3b3b3;
 }
 
 .player {
@@ -366,4 +362,159 @@ a {
     background-color: white;
     border-radius: 50%;
     margin-top: -3px;
+}
+
+@media (max-width: 1000px) {
+    .hide {
+        display: none;
+    }
+
+    .sidebar {
+        width: 250px;
+        min-width: 250px;
+    }
+
+    .card {
+        width: 140px;
+        margin-left: 1rem;
+    }
+
+    .album {
+        width: 25%;
+    }
+
+    .player {
+        width: 45%;
+    }
+
+    .controls {
+        width: 30%;
+        gap: 0.6rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .main {
+        padding: 0.25rem;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main_content {
+        width: 100%;
+        padding: 0 0.75rem;
+        border-radius: 0.75rem;
+    }
+
+    .sticky-nav {
+        padding: 0.75rem 0;
+    }
+
+    .sticky-nav-options {
+        gap: 0.25rem;
+    }
+
+    .nav-item {
+        margin-right: 0.5rem;
+    }
+
+    .card {
+        width: calc(50% - 0.75rem);
+        margin-left: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .card-info {
+        font-size: 0.75rem;
+    }
+
+    .music-player {
+        height: 64px;
+        padding: 0 0.5rem;
+    }
+
+    .album {
+        width: 35%;
+        gap: 0.4rem;
+    }
+
+    .album-img {
+        height: 42px;
+        width: 42px;
+        min-width: 42px;
+    }
+
+    .album p {
+        font-size: 0.7rem;
+        margin: 0;
+    }
+
+    .player {
+        width: 55%;
+    }
+
+    .player-controls {
+        gap: 0.5rem;
+    }
+
+    .player-control-icon {
+        height: 0.8rem;
+        width: 0.8rem;
+    }
+
+    .playback-bar {
+        gap: 0.25rem;
+    }
+
+    .current-time,
+    .total-time {
+        font-size: 0.55rem;
+    }
+
+    .controls {
+        display: none;
+    }
+
+    .progress-bar {
+        width: 75%;
+    }
+
+    .footer {
+        height: 200px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        width: calc(50% - 0.5rem);
+        margin-left: 0.35rem;
+        padding: 0.6rem;
+    }
+
+    .album {
+        width: 32%;
+    }
+
+    .player {
+        width: 60%;
+    }
+
+    .player-controls {
+        gap: 0.35rem;
+    }
+
+    .player-control-icon {
+        height: 0.7rem;
+        width: 0.7rem;
+    }
+
+    .album p {
+        font-size: 0.6rem;
+    }
 }
